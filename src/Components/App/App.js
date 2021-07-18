@@ -65,7 +65,7 @@ class App extends React.Component {
     }
 
     removeTrack(track) {
-      const removedPlaylist = this.state.playlistTracks.filter(x => x.id === track.id);
+      const removedPlaylist = this.state.playlistTracks.filter(x => x.id !== track.id);
       this.setState({ playlistTracks: removedPlaylist });
     }
 
@@ -74,6 +74,7 @@ class App extends React.Component {
     }
 
     savePlaylist() {
+      alert('this method is linked to the button correctly');
       const trackURIs = this.playlistTracks.map(x => x.uri);
     }
 
