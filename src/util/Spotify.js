@@ -22,6 +22,16 @@ const Spotify = {
             const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
             window.location = accessUrl;
         }
+    },
+
+    search(searchTerm) {
+        fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}`, {
+            headers: {Authorization: `Bearer ${accessToken}`}
+        }).then(response => {
+            if(response.ok) {
+                return response.json();
+            }
+        })
     }
 }
 
