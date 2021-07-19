@@ -1,6 +1,6 @@
 let userAccessToken;
 const clientId = ''; // Information not uploaded to Github due to the sensitivity of the information
-const redirectUri = 'http://localhost:3000/';
+const redirectUri = 'http://jamming_crogmi.surge.sh';
 
 const Spotify = {
     getAccessToken() {
