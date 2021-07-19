@@ -1,5 +1,5 @@
 let userAccessToken;
-const clientID = ''; // Information not uploaded to Github due to the sensitivity of the information
+const clientId = ''; // Information not uploaded to Github due to the sensitivity of the information
 const redirectUri = 'http://localhost:3000/';
 
 const Spotify = {
@@ -19,16 +19,16 @@ const Spotify = {
             window.history.pushState('Access Token', null, '/');
             return userAccessToken;
         } else {
-            const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
+            const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
             window.location = accessUrl;
         }
     },
 
     search(searchTerm) {
         const accessToken = Spotify.getAccessToken();
-        const headers = {Authorization: `Bearer ${accessToken}`}
+        const headers = { Authorization: `Bearer ${accessToken}` }
 
-        fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}`, {headers: headers}
+        return fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}`, { headers: headers }
         ).then(response => {
             return response.json();
         }).then(jsonResponse => {
